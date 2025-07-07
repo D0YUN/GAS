@@ -2,5 +2,5 @@
 
 void UCharacterAbilitySystemComponent::ReceiveDamage(UCharacterAbilitySystemComponent* SoureASC, float UnmitigatedDamage, float MitigatedDamage)
 {
-    ReceivedDamage.Broadcast(SoureASC, )
+    ReceivedDamage.Broadcast(SoureASC, UnmitigatedDamage, MitigatedDamage);
 }

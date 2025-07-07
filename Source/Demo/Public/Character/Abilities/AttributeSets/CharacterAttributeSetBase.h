@@ -24,6 +24,10 @@ public:
 
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
+    UPROPERTY(BlueprintReadOnly, Category = "Level", ReplicatedUsing = OnRep_Level)
+    FGameplayAttributeData Level;
+    ATTRIBUTE_ACCESSORS(UCharacterAttributeSetBase, Level)
+
     UPROPERTY(BlueprintReadOnly, Category = "Health", ReplicatedUsing = OnRep_Health)
     FGameplayAttributeData Health;
     ATTRIBUTE_ACCESSORS(UCharacterAttributeSetBase, Health)
@@ -46,6 +50,8 @@ public:
 	FGameplayAttributeData Damage;
 	ATTRIBUTE_ACCESSORS(UCharacterAttributeSetBase, Damage)
 
+    UFUNCTION()
+    virtual void OnRep_Level(const FGameplayAttributeData& OldLevel);
     UFUNCTION()
     virtual void OnRep_Health(const FGameplayAttributeData& OldHealth);
     UFUNCTION()
